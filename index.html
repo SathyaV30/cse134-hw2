@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sathya Venugopal's Portfolio: Explore projects, publications, and professional experience.">
+    <meta name="keywords" content="Sathya Venugopal, Portfolio, Projects, Publications, Experience">
+    <meta property="og:title" content="Sathya Venugopal's Professional Portfolio">
+    <meta property="og:description" content="Dive into a comprehensive portfolio covering a wide range of academic and professional accomplishments by Sathya Venugopal.">
+    <title>Sathya Venugopal Portfolio</title>
+    <!-- Placeholder Script --> 
+    <script></script>
+
+     <!-- Link to external stylesheet -->
+     <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+</head>
+<body> 
+
+        <h1>Sathya Venugopal <svg width="50" height="50" >
+            <polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9" fill="yellow" stroke="goldenrod" stroke-width="1"/>
+        </svg>
+</h1>
+        
+        
+        <video controls width="250" width="250" height="250">
+            <source src="./assets/welcome.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <ul>
+                <!-- Navigation links -->
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <button>Toggle Dark Mode</button>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ASIDE (sidebar) -->
+    <aside>
+        <h3>Professional Profiles</h3>
+        <p>Connect with me on LinkedIn and explore my projects on GitHub:</p>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/sathya-venugopal30" target="_blank">My LinkedIn Profile</a></li>
+            <li><a href="https://github.com/SathyaV30" target="_blank">My GitHub Repository</a></li>
+        </ul>
+    </aside>
+    
+    <main>
+
+<label for="referral-select">Choose a referral source (select):</label>
+<select id="referral-select" name="referral">
+    <optgroup label="Source">
+        <option value="LinkedIn">LinkedIn</option>
+        <option value="GitHub">GitHub</option>
+        <option value="Friend">Friend</option>
+    </optgroup>
+</select>
+
+<br><br> 
+
+<label for="referral-autocomplete">Or type to search for a referral source (autocomplete):</label>
+<input list="referrals-datalist" id="referral-autocomplete" name="referral-autocomplete" placeholder="Start typing..." />
+<datalist id="referrals-datalist">
+    <option value="LinkedIn">
+    <option value="GitHub">
+    <option value="Friend">
+    <option value="Facebook">
+    <option value="Twitter">
+    <option value="Instagram">
+    <option value="Professional Conference">
+    <option value="Networking Event">
+    <option value="Google">
+    <option value="Colleagues">
+    <option value="Alumni Network">
+    <option value="Job Fair">
+    <option value="Customer Referral">
+    <option value="Trade Show">
+</datalist>
+
+
+<br><br> 
+
+
+<form action="/submit-referral" method="post"> 
+    <input type="submit" value="Submit">
+</form>
+
+
+
+        <section id="about">
+            <h1>About Me</h1>
+            <picture>
+                <source srcset="./assets/persona.webp" type="image/webp">
+                <img width = "500" height ="500" src="./assets/persona.webp" alt="Sathya Venugopal persona diagram"> <!-- You need to provide a jpg fallback or similar -->
+              </picture>
+              
+            <p>I am a highly motivated Software Engineer, dedicated to continuously improving my skills through practical learning and hands-on development work</p>
+      
+
+            <br>
+        </section>
+
+        <hr>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <!-- Information about projects -->
+            <article>
+                <h3>NBA Stats App</h3>
+                <figure>
+                    <img src="./assets/nba-stats.png" alt="Project 1" style="width:50%">
+                    <figcaption>
+                        <p>An interactive web application that showcases statistics for both current 
+                            and former NBA players. It includes features such as the ability to add 
+                            favorite players, compare players, generate random players, and view a 
+                            detailed player profile. It also features user authentication and the 
+                            ability to follow other users, make posts, and earn virtual coins.</p>
+                
+                </figcaption>
+                <a href="https://nba-player-stats.netlify.app" target = "_blank">Website Link</a>
+                </figure>
+            </article>
+
+            <article>
+                <h3>Word Game</h3>
+
+                <figure>
+                    <img src="./assets/WT.png" alt="Project 2" style="width:50%">
+                    <figcaption><p>
+                        A captivating mobile game designed for word game enthusiasts: 
+                        an enhanced version of the classic <a href="https://en.wikipedia.org/wiki/Boggle" target = "_blank">Boggle</a> game. This app allows players to choose from diverse board configurations, unlock intricate themes, and select their preferred game time limit. After each game, players are presented with all potential words, along with their definitions. The use of a trie data structure ensures efficient and precise word searches.
+                        </p>
+                    </figcaption>
+                    <a href='https://apps.apple.com/us/app/word-twirl/id6468644109' target="_blank" >
+                        Get it on the App Store
+                        </a>
+                        <br>
+                        <a href='https://play.google.com/store/apps/details?id=com.sathyav30.Word_Twirl&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank" >
+                         Get it on the Google Play Store
+                        </a>
+                </figure>
+               
+            </article>
+        </section>
+
+        <section id="resume">
+            <h2>Interactive Resume</h2>
+            <!-- Education details -->
+            <details>
+                <summary>Educational Background</summary>
+                <ul>
+                    <li>Bachelor of Science in Computer Engineering</li>
+                    <li>GPA: 3.6</li>
+                    <li>Sept 2021 - Jun 2025</li>
+                    <li>Relevant Coursework:
+                        <ul>
+                            <li>Design and Analysis of Algorithms</li>
+                            <li>Advanced Data Structures (C++)</li>
+                            <li>Computer Organization and Systems Programming (C/ARM)</li>
+                            <li>Introduction to Programming and Computational Problem-Solving (Java)</li>
+                            <li>Basic Data Structures and Object-Oriented Design (Java)</li>
+                            <li>Web Client Languages (HTML/CSS/JS)</li>
+                            <li>Web Mining and Recommender Systems (Python)</li>
+                            <li>Software Tools and Techniques Laboratory (Git)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+        
+            <!-- Professional experience details -->
+            <details>
+                <summary>Professional Experience</summary>
+                <article>
+                    <h3>XCredit</h3>
+                    <p>Software Engineering Intern (Jul 2022 - Sept 2022)</p>
+                    <ul>
+                        <li>Developed a credit scoring system boosting scores via social payments.</li>
+                        <li>Boosted team efficiency by 15% with innovative ideas in weekly meetings.</li>
+                        <li>Leveraged 100+ fintech data points to optimize a credit scoring algorithm.</li>
+                        <li>Used MERN stack to develop a P2P payments platform.</li>
+                        <li>Collaborated to launch a mobile app with 400 monthly users, totaling $57K payment volume.</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>Happy Academy</h3>
+                    <p>Mathematics and Computer Science Tutor (Oct 2022 - Present)</p>
+                    <ul>
+                        <li>Tutored high school students in AP Computer Science, Calculus, and Physics.</li>
+                        <li>Conducted engaging small group classes weekly.</li>
+                        <li>Assessed student performance and maintained records.</li>
+                        <li>Fostered a positive learning environment.</li>
+                        <li>Developed innovative teaching strategies for complex concepts.</li>
+                    </ul>
+                </article>
+            </details>
+        
+            <!-- Skills details -->
+            <details>
+                <caption>Skills</caption>
+                <table>
+                    <colgroup>
+                        <col span="2" > 
+                        <col > 
+                    </colgroup>
+                    <tr>
+                      <th>Advanced</th>
+                      <th>Intermediate</th>
+                      <th>Beginner</th>
+                    </tr>
+                    <tr>
+                      <td>Java</td>
+                      <td>React</td>
+                      <td>Swift</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>TypeScript</td>
+                        <td>C++</td>
+                      </tr>
+                      <tr>
+                        <td>HTML/CSS</td>
+                        <td>Python</td>
+                        <td>C</td>
+                      </tr>
+
+                    </table>
+            </details>
+        
+            <!-- Honors & Awards details -->
+            <details>
+                <summary>Honors & Awards</summary>
+                <p>Achievement of the Eagle Scout Rank in the Boy Scouts of America program, a distinction earned by only 4% of scouts.</p>
+            </details>
+        
+            <!-- Download resume link -->
+            <a href="./assets/Sathya_Venugopal_Resume.pdf" download>Download my full resume</a>
+        
+            <!-- Embeded Resume -->
+            <object data="./assets/Sathya_Venugopal_Resume.pdf" type="application/pdf" style="width:100%;height:200px;">
+                <p>It appears you don't have a PDF plugin for this browser. You can <a href="path/to/your-resume.pdf">click here to download the PDF file.</a></p>
+            </object>
+        </section>
+        <section id="Interests">
+            <h1>Interests</h1>
+        
+            <ol>
+                <li>Video Games</li>
+                <li>Basketball</li>
+                <li>Chess</li>
+            </ol>
+        
+            <h3>Favorite Video Game Soundtrack</h3>
+            <caption>Jack Wall - Adrenaline</caption>
+            <audio controls>
+                <source src="./assets/bo2.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        
+            <h3>Favorite NBA Player</h3>
+            <span>Stephen Curry</span>
+        
+            <h3>Favorite Chess Player</h3>
+            <span>Magnus Carlsen</span>
+        
+        </section>
+        
+
+        
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <address>
+                You can reach me at <a href="mailto:sathya.venugopal2003@gmail.com">sathya.venugopal2003@gmail.com</a>
+            </address>
+            <form method="post">
+                <fieldset>
+                    <legend>Personal information:</legend>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="user_name"><br><br>
+
+                    <label for="msg">Message:</label>
+                    <textarea id="msg" name="user_message"></textarea><br><br>
+                    <input type="submit" value="Send">
+                    <input type="reset" value="Reset">
+                </fieldset>
+            </form>
+        </section>
+
+     
+        <section id = "Experiments">
+        <h1>Experiments</h1>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <mrow>
+                <mi>E</mi>
+      <mo>=</mo>
+      <mi>m</mi>
+      <mo>×</mo>
+      <msup>
+        <mi>c</mi>
+        <mn>2</mn>
+      </msup>
+    </mrow>
+  </math>
+  <pre>
+    <code> 
+        function HelloWorld() {
+            return "Hello, world!";
+        }
+    </code>
+
+</pre>
+</section>
+  
+
+
+    </main>
+
+    </body>
+
+
+       
+
+    <!-- FOOTER -->
+    <footer>
+        <hr>
+        <p><em>💯This page was made with ♥ by <b>Sathya Venugopal</b> 💯</em></p>
+        <canvas id="smileyCanvas" width="200" height="200"></canvas>
+
+        <script>
+            var ctx = document.getElementById("smileyCanvas").getContext("2d");
+            ctx.arc(100, 100, 80, 0, 2 * Math.PI);
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
+            ctx.stroke();
+            ctx.fillStyle = 'black';
+            ['70', '130'].forEach(function(x) {
+                ctx.beginPath();
+                ctx.arc(x, 75, 10, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+            ctx.beginPath();
+            ctx.arc(100, 100, 50, 0, Math.PI);
+            ctx.stroke();
+        </script>
+            
+    </footer>
+        
+</html>
