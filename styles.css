@@ -1,0 +1,256 @@
+
+
+:root {
+
+    --background-color: #f4f2f3;
+    --background-color-dark: #222;
+    --text-color-dark: #ffffff;
+    --primary-color: color(display-p3 0 0.5 0.7); 
+    --primary-color-hover: color-mix(in srgb, #34c9eb 20%, #0b1e61);;
+    --border-color: #e7e7e7;
+    --font-stack: 'CustomFont', Arial, sans-serif; /* Custom font with fallback */
+    --link-color: #0077cc;
+    --font-size-base: 100%; 
+}
+
+/* Importing a custom font with a fallback */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('assets/Righteous-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Fallback if loading takes too long */
+}
+
+/* General styles */
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+    font-family: var(--font-stack, Arial);
+}
+body {
+    
+    font-size: var(--font-size-base, 100%);
+    line-height: 1.5;
+    background-color: var(--background-color, #f4f2f3);
+    color: #000; 
+    transition: background-color 0.3s ease; 
+}
+
+body[data-theme="dark"] {
+    background-color: var(--background-color-dark, #222);
+    color: var(--text-color-dark, #fff);
+}
+
+h1, h2, h3 {
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 2.5rem; 
+}
+
+nav ul li:has(> a[href^="#"]) {
+    font-size: larger;
+}
+
+h2 {
+    font-size: 2rem; 
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color, #0077cc);
+    transition: color 0.3s ease; 
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* Navigation Bar */
+header nav {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid var(--border-color, #e7e7e7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+    background-color: transparent;
+}
+
+button{
+    background-color: var(--primary-color, blue);
+    color: var(--text-color-dark, #fff);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, input[type = "submit"]:hover, input[type ="reset"]:hover {
+    background-color: var(--primary-color-hover, rgb(22, 22, 81));
+    transform: scale(1.05); 
+}
+
+/* Sidebar */
+aside {
+    width: 250px;
+    padding: 20px;
+    float: left;
+}
+
+/* Main Content */
+main {
+    margin-left: 25vw;
+    padding: 5vh 5vw; 
+    animation: fadeIn 1s ease-out; 
+}
+
+/* Image and Video styles */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Form styles */
+form {
+    margin: 20px 0;
+}
+
+form fieldset {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+form fieldset legend {
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: var(--primary-color, blue);
+    color: var(--text-color-dark, #fff);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s ease; /* Transition for button background */
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: var(--primary-color-hover);
+}
+
+/* Footer */
+footer {
+    clear: both;
+    background-color: #f8f8f8;
+    border-top: 1px solid var(--border-color, #e7e7e7);
+    padding: 20px 50px;
+    text-align: center;
+}
+
+/* CSS Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* For tablets */
+@media (max-width: 768px) {
+    aside {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px; 
+    }
+
+    main {
+        margin-left: 0; 
+        padding: 20px; 
+    }
+
+    header nav {
+        padding: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column; /* Stack the navigation items */
+        gap: 10px;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        padding: 10px; 
+    }
+
+    /* Adjusting main content for smaller screens */
+    main {
+        padding: 10px; 
+    }
+}
+
+/* For high-resolution displays */
+@media 
+  (-webkit-min-device-pixel-ratio: 2), 
+  (min-resolution: 192dpi) { 
+    /* Increase font sizes for better readability on high-res screens */
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+}
+
+

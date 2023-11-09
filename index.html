@@ -19,16 +19,10 @@
 </head>
 <body> 
 
-        <h1>Sathya Venugopal <svg width="50" height="50" >
-            <polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9" fill="yellow" stroke="goldenrod" stroke-width="1"/>
-        </svg>
+        <h1 style = "text-align: center;">Sathya Venugopal 
 </h1>
         
-        
-        <video controls width="250" height="250">
-            <source src="./assets/welcome.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+
     
     <!-- HEADER -->
     <header>
@@ -46,6 +40,10 @@
 
     <!-- ASIDE (sidebar) -->
     <aside>
+        <video controls width="250" height="250">
+            <source src="./assets/welcome.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <h3>Professional Profiles</h3>
         <p>Connect with me on LinkedIn and explore my projects on GitHub:</p>
         <ul>
@@ -97,11 +95,13 @@
 
 
         <section id="about">
-            <h1>About Me</h1>
+            <hr>
+            <h2>About Me</h2>
             <picture>
-                <source srcset="./assets/persona.webp" type="image/webp">
-                <img width = "500" height ="500" src="./assets/persona.webp" alt="Sathya Venugopal persona diagram"> <!-- You need to provide a jpg fallback or similar -->
-              </picture>
+                <source media="(max-width: 799px)" srcset="./assets/persona_Small.webp" type="image/webp">
+                <source media="(min-width: 800px)" srcset="./assets/persona.webp" type="image/webp">
+                <img src="./assets/persona.webp" alt="Sathya Venugopal persona diagram" style="width:auto; max-width:100%;">
+            </picture>
               
             <p>I am a highly motivated Software Engineer, dedicated to continuously improving my skills through practical learning and hands-on development work</p>
       
@@ -117,7 +117,11 @@
             <article>
                 <h3>NBA Stats App</h3>
                 <figure>
-                    <img src="./assets/nba-stats.png" alt="Project 1" style="width:50%">
+                    <picture>
+                        <source media="(max-width: 799px)" srcset="./assets/nba-stats_Small.png" type="image/png">
+                        <source media="(min-width: 800px)" srcset="./assets/nba-stats.png" type="image/png">
+                        <img src="./assets/nba-stats.png" alt="NBA Stats App" style="width:auto; max-width:100%;">
+                    </picture>
                     <figcaption>
                         <p>An interactive web application that showcases statistics for both current 
                             and former NBA players. It includes features such as the ability to add 
@@ -134,7 +138,11 @@
                 <h3>Word Game</h3>
 
                 <figure>
-                    <img src="./assets/WT.png" alt="Project 2" style="width:50%">
+                    <picture>
+                        <source media="(max-width: 799px)" srcset="./assets/WT_Small.png" type="image/png">
+                        <source media="(min-width: 800px)" srcset="./assets/WT.png" type="image/png">
+                        <img src="./assets/WT.png" alt="Word Game" style="width:auto; max-width:100%;">
+                    </picture>
                     <figcaption><p>
                         A captivating mobile game designed for word game enthusiasts: 
                         an enhanced version of the classic <a href="https://en.wikipedia.org/wiki/Boggle" target = "_blank">Boggle</a> game. This app allows players to choose from diverse board configurations, unlock intricate themes, and select their preferred game time limit. After each game, players are presented with all potential words, along with their definitions. The use of a trie data structure ensures efficient and precise word searches.
@@ -153,6 +161,7 @@
         </section>
 
         <section id="resume">
+            <hr>
             <h2>Interactive Resume</h2>
             <!-- Education details -->
             <details>
@@ -210,7 +219,7 @@
                 <table>
                     <caption>Skills</caption>
                     <colgroup>
-                        <col span="2" > 
+                        <col span="5" > 
                         <col > 
                     </colgroup>
                     <tr>
@@ -252,8 +261,9 @@
             </object>
         </section>
         <section id="Interests">
-            <h1>Interests</h1>
-        
+            <hr>
+            <h2>Interests</h2>
+    
             <ol>
                 <li>Video Games</li>
                 <li>Basketball</li>
@@ -261,11 +271,15 @@
             </ol>
         
             <h3>Favorite Video Game Soundtrack</h3>
-            <span>Jack Wall - Adrenaline</span>
-            <audio controls>
-                <source src="./assets/bo2.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+            <div style ="display: flex; flex-direction: row; align-items: center;">
+                <span>Jack Wall - Adrenaline</span>
+                <audio controls>
+                    <source src="./assets/bo2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            
+            </div>
+            
         
             <h3>Favorite NBA Player</h3>
             <span>Stephen Curry</span>
@@ -279,6 +293,7 @@
         
 
         <section id="contact">
+            <hr>
             <h2>Contact Me</h2>
             <address>
                 You can reach me at <a href="mailto:sathya.venugopal2003@gmail.com">sathya.venugopal2003@gmail.com</a>
@@ -299,7 +314,11 @@
 
      
         <section id = "Experiments">
-        <h1>Experiments</h1>
+            <hr>
+        <h2>Experiments</h2>
+        <svg width="50" height="50" >
+            <polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9" fill="yellow" stroke="goldenrod" stroke-width="1"/>
+        </svg>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <mrow>
                 <mi>E</mi>
