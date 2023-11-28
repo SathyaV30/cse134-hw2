@@ -9,8 +9,7 @@
     <meta property="og:title" content="Sathya Venugopal's Professional Portfolio">
     <meta property="og:description" content="Dive into a comprehensive portfolio covering a wide range of academic and professional accomplishments by Sathya Venugopal.">
     <title>Sathya Venugopal Portfolio</title>
-    <!-- Placeholder Script --> 
-    <script></script>
+ 
 
      <!-- Link to external stylesheet -->
      <link rel="stylesheet" type="text/css" href="styles.css">
@@ -34,13 +33,13 @@
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button>Toggle Dark Mode</button>
+            <button id = "theme-toggle">Toggle Theme</button>
         </nav>
     </header>
 
     <!-- ASIDE (sidebar) -->
     <aside>
-        <video controls width="250" height="250">
+        <video controls width="250" height="250" id = "welcome-video">
             <source src="./assets/welcome.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -292,25 +291,40 @@
 
         
 
-        <section id="contact">
-            <hr>
-            <h2>Contact Me</h2>
-            <address>
-                You can reach me at <a href="mailto:sathya.venugopal2003@gmail.com">sathya.venugopal2003@gmail.com</a>
-            </address>
-            <form method="post">
-                <fieldset>
-                    <legend>Personal information:</legend>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="user_name"><br><br>
+    <section id="contact">
+  <hr>
+  <h2>Contact Me</h2>
+  <address>
+    You can reach me at <a href="mailto:sathya.venugopal2003@gmail.com">sathya.venugopal2003@gmail.com</a>
+  </address>
+  <form method="post" action="https://httpbin.org/post" novalidate class="contact-form">
+    <fieldset>
+      <legend>Personal information:</legend>
 
-                    <label for="msg">Message:</label>
-                    <textarea id="msg" name="user_message"></textarea><br><br>
-                    <input type="submit" value="Send">
-                    <input type="reset" value="Reset">
-                </fieldset>
-            </form>
-        </section>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user_name" pattern="[A-Za-z ]+" required>
+      <output id="nameError"></output><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="user_email" required>
+      <output id="emailError"></output><br><br>
+
+      <label for="msg">Comments:</label>
+      <textarea id="msg" name="user_message" required minlength="20" maxlength="500"></textarea>
+      <output id="messageInfo" class="info"></output>
+      <output id="messageError"></output><br><br>
+
+      <input type="hidden" name="form-errors" id="form-errors">
+
+      <div class="input-container">
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">
+      </div>
+    </fieldset>
+  </form>
+  
+</section>
+
 
      
         <section id = "Experiments">
@@ -351,25 +365,126 @@
         <hr>
         <p><em>💯This page was made with ♥ by <b>Sathya Venugopal</b> 💯</em></p>
         <canvas id="smileyCanvas" width="200" height="200"></canvas>
-
+    </footer>
         <script>
-            var ctx = document.getElementById("smileyCanvas").getContext("2d");
-            ctx.arc(100, 100, 80, 0, 2 * Math.PI);
-            ctx.fillStyle = 'yellow';
-            ctx.fill();
-            ctx.stroke();
-            ctx.fillStyle = 'black';
-            ['70', '130'].forEach(function(x) {
-                ctx.beginPath();
-                ctx.arc(x, 75, 10, 0, 2 * Math.PI);
-                ctx.fill();
-            });
-            ctx.beginPath();
-            ctx.arc(100, 100, 50, 0, Math.PI);
-            ctx.stroke();
+window.addEventListener('load', ()=> {
+    const welcomeVideo = document.getElementById('welcome-video');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+
+    welcomeVideo.play()
+      .catch(error => {
+        console.log("Auto-play was prevented");
+    });
+})
+const form = document.querySelector('.contact-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const messageTextarea = document.querySelector('#msg');
+const nameErrorOutput = document.querySelector('#nameError');
+const emailErrorOutput = document.querySelector('#emailError');
+const messageErrorOutput = document.querySelector('#messageError');
+const messageInfoOutput = document.querySelector('#messageInfo');
+let formErrors = [];
+
+messageTextarea.addEventListener('input', function() {
+  const remaining = 500 - this.value.length;
+  messageInfoOutput.textContent = remaining + ' characters remaining';
+  if (remaining <= 50) messageInfoOutput.className = 'warn';
+  if (remaining <= 25) messageInfoOutput.className = 'error';
+  if (remaining > 50) messageInfoOutput.className = 'info';
+});
+
+form.addEventListener('submit', function(event) {
+  formErrors = [];
+
+  if (!nameInput.checkValidity()) {
+    nameErrorOutput.textContent = nameInput.validationMessage;
+    formErrors.push({ field: 'name', error: nameInput.validationMessage });
+  } else {
+    nameErrorOutput.textContent = '';
+  }
+
+  if (!emailInput.checkValidity()) {
+    emailErrorOutput.textContent = emailInput.validationMessage;
+    formErrors.push({ field: 'email', error: emailInput.validationMessage });
+  } else {
+    emailErrorOutput.textContent = '';
+  }
+
+  if (messageTextarea.value.length < 20) {
+    formErrors.push({ field: 'message', error: 'The message is too short.' });
+  }
+
+  if (/[^\p{L}\p{N}\p{P}\p{Z}\p{M}\s]/gu.test(messageTextarea.value)) {
+    formErrors.push({ field: 'message', error: 'Emojis and special characters are not allowed.' });
+  }
+
+  if (formErrors.length > 0) {
+    messageErrorOutput.textContent = formErrors.map(error => error.error).join('. ');
+    document.querySelector('#form-errors').value = JSON.stringify(formErrors);
+  }
+  
+  console.log(formErrors);
+});
+
+messageTextarea.addEventListener('input', function() {
+  if (/[^\p{L}\p{N}\p{P}\p{Z}\p{M}\s]/gu.test(this.value)) {
+    messageErrorOutput.classList.add('message-fade');
+    messageErrorOutput.textContent = 'Emojis and special characters are not allowed!';
+    setTimeout(() => {
+        messageErrorOutput.classList.remove('message-fade'); 
+        messageErrorOutput.textContent ='';
+    }, 2000);
+}});
+
+form.addEventListener('reset', function() {
+  nameErrorOutput.textContent = '';
+  emailErrorOutput.textContent = '';
+  messageErrorOutput.textContent = '';
+  messageInfoOutput.textContent = '';
+  messageInfoOutput.className = 'info';
+});
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('theme-toggle').textContent = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+}
+
+function toggleTheme() {
+  let currentTheme = document.documentElement.getAttribute('data-theme');
+  
+  let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  applyTheme(newTheme);
+  
+  localStorage.setItem('theme', newTheme);
+}
+
+
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const savedTheme = localStorage.getItem('theme') || 'light'; 
+  applyTheme(savedTheme);
+});
+
+
+            
         </script>
             
-    </footer>
+            <noscript>
+                <style>
+                  body {
+                    background-color: #f4f2f3;
+                    color: #000;
+                  }
+    
+                </style>
+              </noscript>
+    
         
 
     </body>

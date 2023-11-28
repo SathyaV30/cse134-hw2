@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href="styles.css">
+</head>
+<body>
+    <form method="post" action="https://httpbin.org/post" novalidate>
+        <fieldset>
+          <legend>Personal information:</legend>
+      
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name" required>
+          <output id="nameError"></output><br><br>
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="user_email" required>
+          <output id="emailError"></output><br><br>
+      
+          <label for="msg">Comments:</label>
+          <textarea id="msg" name="user_message" required minlength="20" maxlength="500" 
+                    pattern="[^\x00-\x1F\x7F-\x9F]*"></textarea>
+          <output id="messageError"></output><br><br>
+      
+          <input type="hidden" name="possible_bot" value="true">
+      
+          <div class="input-container">
+            <input type="submit" value="Send">
+            <input type="reset" value="Reset">
+          </div>
+        </fieldset>
+      </form>
+</body>
+</html>

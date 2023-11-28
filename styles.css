@@ -1,17 +1,39 @@
 
-
 :root {
-
     --background-color: #f4f2f3;
     --background-color-dark: #222;
+    --text-color: #000;
     --text-color-dark: #ffffff;
     --primary-color: color(display-p3 0 0.5 0.7); 
-    --primary-color-hover: color-mix(in srgb, #34c9eb 20%, #0b1e61);;
+    --primary-color-hover: color-mix(in srgb, #34c9eb 20%, #0b1e61);
     --border-color: #e7e7e7;
     --font-stack: 'CustomFont', Arial, sans-serif; /* Custom font with fallback */
     --link-color: #0077cc;
     --font-size-base: 100%; 
 }
+
+[data-theme="dark"] {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --link-color: #4f96ff; /* Brighter link color for dark mode */
+    --border-color: #444; /* Darker border for dark mode */
+}
+
+#theme-toggle {
+    background-color: #4f96ff;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #4f96ff;
+    color: var(--background-color);
+}
+
 
 /* Importing a custom font with a fallback */
 @font-face {
@@ -35,7 +57,7 @@ body {
     font-size: var(--font-size-base, 100%);
     line-height: 1.5;
     background-color: var(--background-color, #f4f2f3);
-    color: #000; 
+    color: var(--text-color); 
     transition: background-color 0.3s ease; 
 }
 
@@ -45,6 +67,7 @@ body[data-theme="dark"] {
 }
 
 h1, h2, h3 {
+     color: var(--text-color); 
     margin-top: 20px;
 }
 
@@ -141,11 +164,47 @@ form fieldset {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 form fieldset legend {
     font-weight: bold;
 }
+  label::after {
+    content: "*";
+    color: red;
+  }
+  
+  input:required, textarea:required {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  input:invalid, textarea:invalid {
+    border-color: red;
+  }
+  
+  input:valid, textarea:valid {
+    border-color: green;
+  }
+  
+  input[type="submit"], input[type="reset"] {
+    margin-top: 10px;
+    padding: 10px;
+  }
+  
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  output {
+    color: red;
+    font-size: 0.8em;
+  }
+  
 
 input[type="text"],
 textarea {
@@ -157,14 +216,20 @@ textarea {
 
 input[type="submit"],
 input[type="reset"] {
+    width:45%;
     background-color: var(--primary-color, blue);
-    color: var(--text-color-dark, #fff);
+    color: var(--text-color, #fff);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     margin: 10px 0;
     transition: background-color 0.3s ease; /* Transition for button background */
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-around;
 }
 
 input[type="submit"]:hover,
@@ -175,12 +240,29 @@ input[type="reset"]:hover {
 /* Footer */
 footer {
     clear: both;
-    background-color: #f8f8f8;
+    background-color: var(--background-color, #f4f2f3);
     border-top: 1px solid var(--border-color, #e7e7e7);
     padding: 20px 50px;
     text-align: center;
 }
+input:invalid, textarea:invalid {
+    border: 2px solid red;
+  }
+  .message-fade {
+    transition: opacity 2s ease-in-out;
+    opacity: 0;
+  }
+  .info {
+    color: green;
+  }
+  .warn {
+    color: orange;
+  }
+  .error {
+    color: red;
+  }
 
+  
 /* CSS Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -234,6 +316,8 @@ footer {
         padding: 10px; 
     }
 }
+
+
 
 /* For high-resolution displays */
 @media 
